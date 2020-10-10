@@ -19,7 +19,7 @@ public class CinemaController {
     private GenreService genreService;
 
     @GetMapping("/{userId}")
-    public List<Cinema> getAllBooks(
+    public List<Cinema> getAllMovies(
             @PathVariable String userId) {
         // get all books by userId
         UserMovie  userMovie = movieService.getUserMovie(userId);

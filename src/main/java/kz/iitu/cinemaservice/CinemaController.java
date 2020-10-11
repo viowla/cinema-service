@@ -21,7 +21,7 @@ public class CinemaController {
     @GetMapping("/{userId}")
     public List<Cinema> getAllMovies(
             @PathVariable String userId) {
-        // get all books by userId
+        // get all movies by userId
         UserMovie  userMovie = movieService.getUserMovie(userId);
 
         List<Cinema> cinemaList = new ArrayList<>();

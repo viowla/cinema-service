@@ -12,8 +12,8 @@ public class GenreService {
     private RestTemplate restTemplate;
 
     @HystrixCommand(
-            fallbackMethod = "getUserMovieFallback",
-            threadPoolKey = "getUserMovie",
+            fallbackMethod = "getMovieGenreFallback",
+            threadPoolKey = "getMovieGenre",
             threadPoolProperties = {
                     @HystrixProperty(name = "coreSize", value = "100"),
                     @HystrixProperty(name = "maximumSize", value = "120"),
@@ -27,4 +27,7 @@ public class GenreService {
                 Genre.class);
     }
 
+    public Genre getMovieGenreFallback(String movieId, String genreId) {
+        return new Genre(movieId, genreId);
+    }
 }

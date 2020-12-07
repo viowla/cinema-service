@@ -34,4 +34,13 @@ public class CinemaController {
 
         return cinemaList;
     }
+
+    @GetMapping("/movieId")
+    public List<Genre> getMovieGenre(
+            @PathVariable String movieId
+    ){
+        Genre genreMovie = genreService.getMovieGenre(movieId);
+        List<Genre> genres = new ArrayList<>();
+        return genres;
+    }
 }

@@ -21,14 +21,7 @@ public class MovieService {
     RestTemplate restTemplate;
 
 
-    @HystrixCommand(
-            fallbackMethod = "getUserMovieFallback",
-            threadPoolKey = "getUserMovie",
-            threadPoolProperties = {
-                    @HystrixProperty(name = "coreSize", value = "100"),
-                    @HystrixProperty(name = "maxQueueSize", value = "50")
-            }
-    )
+    @HystrixCommand()
     public UserMovie getUserMovie(String userId){
         String apiCredentials = "rest-client:p@ssword";
         String base64Credentials = new String(Base64.encodeBase64(apiCredentials.getBytes()));
